@@ -15,7 +15,7 @@ const errorMiddleware = require("./middlewares/error-middleware.js");
 //handling cors policy and hosting
 const corsOptions = {
   origin: "https://disney-plus-clone-frontend-coral.vercel.app",
-  method: "GET,POST,PUT,DELETE,PATCH,HEAD",
+  methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
   Credentials: true,
 };
 app.use(cors(corsOptions));
