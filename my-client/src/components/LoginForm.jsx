@@ -6,10 +6,8 @@ import { useAuth } from "../mystore/auth";
 import { GoogleLogin } from "@react-oauth/google";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
 
 function LoginForm() {
-  axios.defaults.withCredentials=true;
   const responseMessage = (response) => {
     storeTokenInLSt(response.credential);
     storeTokenInLS(response.credential);
@@ -50,7 +48,7 @@ function LoginForm() {
 
     try {
       const response = await fetch(
-        "https://disney-plus-clone-weld-nine.vercel.app/register",
+        "https://disney-plus-clone-weld-nine.vercel.app/api/auth/register",
         {
           method: "POST",
           headers: {
@@ -124,7 +122,7 @@ function LoginForm() {
 
     try {
       const response = await fetch(
-        "https://disney-plus-clone-weld-nine.vercel.app/login",
+        "https://disney-plus-clone-weld-nine.vercel.app/api/auth/login",
         {
           method: "POST",
           headers: {
