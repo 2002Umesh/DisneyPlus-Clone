@@ -55,7 +55,8 @@ function LoginForm() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(user),
-          mode:"cors",
+          mode: "cors",
+          credentials: "include",
         }
       );
 
