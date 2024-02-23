@@ -48,7 +48,7 @@ function LoginForm() {
 
     try {
       const response = await fetch(
-        "https://disney-plus-clone-weld-nine.vercel.app/api/auth/register",
+        "https://disney-plus-clone-weld-nine.vercel.app/register",
         {
           method: "POST",
           headers: {
@@ -122,7 +122,7 @@ function LoginForm() {
 
     try {
       const response = await fetch(
-        "https://disney-plus-clone-weld-nine.vercel.app/api/auth/login",
+        "https://disney-plus-clone-weld-nine.vercel.app/login",
         {
           method: "POST",
           headers: {
