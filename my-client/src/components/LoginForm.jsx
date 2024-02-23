@@ -47,13 +47,16 @@ function LoginForm() {
     console.log("registered email", user.email);
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      });
+      const response = await fetch(
+        "https://disney-plus-clone-weld-nine.vercel.app/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        }
+      );
 
       if (response.ok) {
         currentEmail(user.email);
@@ -118,13 +121,16 @@ function LoginForm() {
     console.log(userLogin);
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userLogin),
-      });
+      const response = await fetch(
+        "https://disney-plus-clone-weld-nine.vercel.app/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userLogin),
+        }
+      );
       if (response.ok) {
         const resp_data = await response.json();
         console.log("res from server", resp_data);
