@@ -22,6 +22,9 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
+// app.use("/api/auth", authRoute);
+// app.use("/api/form", contactRoute);
+
 app.use("/api/auth", authRoute);
 app.use("/api/form", contactRoute);
 
@@ -33,7 +36,7 @@ app.use(errorMiddleware);
 // app.get("/about", (req, res) => {
 //   res.status(200).send("welcome user to my about");
 // });
-const PORT = 5000;
+const PORT = 5000/api/auth;
 connectDb().then(() => {
   app.listen(PORT, () => {
     console.log(`server is running at port : ${PORT}`);
