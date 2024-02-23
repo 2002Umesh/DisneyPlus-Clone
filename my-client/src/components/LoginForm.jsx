@@ -6,8 +6,10 @@ import { useAuth } from "../mystore/auth";
 import { GoogleLogin } from "@react-oauth/google";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 function LoginForm() {
+  axios.defaults.withCredentials=true;
   const responseMessage = (response) => {
     storeTokenInLSt(response.credential);
     storeTokenInLS(response.credential);

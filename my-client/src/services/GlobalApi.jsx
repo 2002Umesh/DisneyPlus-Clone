@@ -1,5 +1,5 @@
 import axios from "axios";
-
+// axios.defaults.withCredentials=true;
 const api_key='b1f0abf698a6e6e6b9c3c559900fe4ca'
 
 const movieBaseUrl="https://api.themoviedb.org/3"
