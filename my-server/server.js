@@ -28,7 +28,7 @@ app.use(express.json());
 // app.use("/api/auth", authRoute);
 // app.use("/api/form", contactRoute);
 
-app.use("/api/auth", authRoute);
+app.use("/", authRoute);
 app.use("/api/form", contactRoute);
 
 app.use(errorMiddleware);
