@@ -47,16 +47,13 @@ function LoginForm() {
     console.log("registered email", user.email);
 
     try {
-      const response = await fetch(
-        "https://disney-plus-clone-backend.vercel.app/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(user),
-        }
-      );
+      const response = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
 
       if (response.ok) {
         currentEmail(user.email);
