@@ -7,7 +7,7 @@ function AdminUpdate() {
 
  const BACKURL = "https://disney-plus-clone-back.vercel.app";
 
- const LOCALURL = "http://localhost:5000";
+ const LOCALURL = "https://localhost:5000";
 
 
   const [data, setData] = useState({
@@ -20,7 +20,7 @@ function AdminUpdate() {
   const getSingleUserData = async () => {
     try {
       const res = await fetch(
-        `${BACKURL | LOCALURL}/api/admin/users/${params.id}`,
+        `${BACKURL}/api/admin/users/${params.id}`,
         {
           method: "GET",
           headers: {
@@ -55,7 +55,7 @@ function AdminUpdate() {
     e.preventDefault();
     try {
       const resp = await fetch(
-        `${BACKURL | LOCALURL}/api/admin/users/update/${params.id}`,
+        `${BACKURL}/api/admin/users/update/${params.id}`,
         {
           method: "PATCH",
           headers: {

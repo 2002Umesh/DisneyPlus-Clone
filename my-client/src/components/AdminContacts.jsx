@@ -4,14 +4,14 @@ import { useAuth } from "../mystore/auth";
 function AdminContacts() {
   const BACKURL = "https://disney-plus-clone-back.vercel.app";
 
-  const LOCALURL = "http://localhost:5000";
+  const LOCALURL = "https://localhost:5000";
 
   const [contactData, setContactData] = useState([]);
   const { authorizationToken } = useAuth();
 
   const getContactsData = async () => {
     try {
-      const response = await fetch(`${BACKURL | LOCALURL}/api/admin/contacts`, {
+      const response = await fetch(`${BACKURL}/api/admin/contacts`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,

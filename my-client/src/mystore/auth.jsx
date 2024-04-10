@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
 const BACKURL = "https://disney-plus-clone-back.vercel.app";
 
-const LOCALURL = "http://localhost:5000";
+const LOCALURL = "https://localhost:5000";
 
 
   const [user, setUser] = useState([]);
@@ -88,7 +88,7 @@ const LOCALURL = "http://localhost:5000";
 
   const DeleteUser = async () => {
     try {
-      const response = await fetch(`${BACKURL | LOCALURL}/api/auth/register`, {
+      const response = await fetch(`${BACKURL}/api/auth/register`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -120,7 +120,7 @@ const LOCALURL = "http://localhost:5000";
     try {
       setIsAdmin(false);
       setIsLoading(true);
-      const response = await fetch(`${BACKURL | LOCALURL}/api/admin/users`, {
+      const response = await fetch(`${BACKURL}/api/admin/users`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,

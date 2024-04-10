@@ -8,7 +8,7 @@ export const Contact = () => {
  
 const BACKURL = "https://disney-plus-clone-back.vercel.app";
 
-const LOCALURL = "http://localhost:5000";
+const LOCALURL = "https://localhost:5000";
 
 
   const [contact, setContact] = useState({
@@ -33,7 +33,7 @@ const LOCALURL = "http://localhost:5000";
     e.preventDefault();
     console.log(contact);
     try {
-      const res = await fetch(`${BACKURL | LOCALURL}/api/form/contact`, {
+      const res = await fetch(`${BACKURL}/api/form/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

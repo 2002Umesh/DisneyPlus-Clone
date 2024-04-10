@@ -12,7 +12,7 @@ function LoginForm() {
 
   const BACKURL = "https://disney-plus-clone-back.vercel.app";
 
-  const LOCALURL = "http://localhost:5000";
+  const LOCALURL = "https://localhost:5000";
 
 
   const responseMessage = (response) => {
@@ -54,7 +54,7 @@ function LoginForm() {
     console.log("registered email", user.email);
 
     try {
-      const response = await fetch(`${BACKURL | LOCALURL}/api/auth/register`, {
+      const response = await fetch(`${BACKURL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -139,7 +139,7 @@ function LoginForm() {
     console.log(userLogin);
 
     try {
-      const response = await fetch(`${BACKURL | LOCALURL}/api/auth/login`, {
+      const response = await fetch(`${BACKURL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

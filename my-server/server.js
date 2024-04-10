@@ -15,7 +15,7 @@ const errorMiddleware = require("./middlewares/error-middleware.js");
 const corsOptions = {
   origin: [
     "https://disney-plus-clone-front.vercel.app",
-    "http://localhost:5173",
+    "https://localhost:5173",
   ],
   method: "GET,POST,PUT,DELETE,PATCH,HEAD",
   Credentials: true,
@@ -41,7 +41,7 @@ app.use(errorMiddleware);
 // app.get("/about", (req, res) => {
 //   res.status(200).send("welcome user to my about");
 // });
-const PORT = 5000 | "https://disney-plus-clone-back.vercel.app";
+const PORT = "https://disney-plus-clone-back.vercel.app" | 5000;
 connectDb().then(() => {
   app.listen(PORT, () => {
     console.log(`server is running at port : ${PORT}`);

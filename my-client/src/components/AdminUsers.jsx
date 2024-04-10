@@ -7,14 +7,14 @@ function AdminUsers() {
 
 const BACKURL = "https://disney-plus-clone-back.vercel.app";
 
-const LOCALURL = "http://localhost:5000";
+const LOCALURL = "https://localhost:5000";
 
 
   const [users, setUsers] = useState([]);
   const { authorizationToken } = useAuth();
   const getAllUsersData = async () => {
     try {
-      const response = await fetch(`${BACKURL | LOCALURL}/api/admin/users`, {
+      const response = await fetch(`${BACKURL}/api/admin/users`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,
