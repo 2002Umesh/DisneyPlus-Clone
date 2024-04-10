@@ -11,13 +11,19 @@ import axios from "axios";
 function Subscribtion() {
   // const amount =Number(149);
 
+
+
+  const BACKURL = "https://disney-plus-clone-back.vercel.app";
+
+  const LOCALURL = "http://localhost:5000";
+
   const checkouthandler = async (amount) => {
     const {
       data: { key },
-    } = await axios.get("http://localhost:5000/api/payment/getkey");
+    } = await axios.get(`${BACKURL | LOCALURL}/api/payment/getkey`);
     const {
       data: { order },
-    } = await axios.post("http://localhost:5000/api/payment/checkout", {
+    } = await axios.post(`${BACKURL | LOCALURL}/api/payment/checkout`, {
       amount,
     });
     console.log(window);
@@ -30,7 +36,7 @@ function Subscribtion() {
       image:
         "https://img.freepik.com/premium-vector/concept-online-commercemobile-app-payment-with-credit-card-web-banking-customer_183665-376.jpg",
       order_id: order.id,
-      callback_url: "http://localhost:5000/api/payment/verification",
+      callback_url: `${BACKURL | LOCALURL}/api/payment/verification`,
       prefill: {
         name: "Cruiz",
         email: "cruiz2002@gmail.com",

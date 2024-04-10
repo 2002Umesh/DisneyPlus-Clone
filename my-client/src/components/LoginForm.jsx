@@ -7,6 +7,14 @@ import { GoogleLogin } from "@react-oauth/google";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function LoginForm() {
+
+
+
+  const BACKURL = "https://disney-plus-clone-back.vercel.app";
+
+  const LOCALURL = "http://localhost:5000";
+
+
   const responseMessage = (response) => {
     storeTokenInLSt(response.credential);
     storeTokenInLS(response.credential);
@@ -46,7 +54,7 @@ function LoginForm() {
     console.log("registered email", user.email);
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
+      const response = await fetch(`${BACKURL | LOCALURL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

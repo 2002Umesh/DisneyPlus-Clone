@@ -2,12 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../mystore/auth";
 
 function AdminContacts() {
+  const BACKURL = "https://disney-plus-clone-back.vercel.app";
+
+  const LOCALURL = "http://localhost:5000";
+
   const [contactData, setContactData] = useState([]);
   const { authorizationToken } = useAuth();
 
   const getContactsData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin/contacts", {
+      const response = await fetch(`${BACKURL | LOCALURL}/api/admin/contacts`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,
@@ -28,10 +32,10 @@ function AdminContacts() {
   }, []);
   // console.log("contacts",contactData);
 
-  const deleteContact = async (id,msg) => {
+  const deleteContact = async (id, msg) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/contacts/delete/${id}`,
+        `${BACKURL | LOCALURL}/api/admin/contacts/delete/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -76,7 +80,9 @@ function AdminContacts() {
 
                     <td className="px-6 py-4 text-center">
                       <button
-                        onClick={() => deleteContact(contact._id,contact.message)}
+                        onClick={() =>
+                          deleteContact(contact._id, contact.message)
+                        }
                         className="text-red-600 hover:underline"
                       >
                         Delete

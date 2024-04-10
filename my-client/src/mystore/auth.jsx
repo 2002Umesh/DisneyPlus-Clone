@@ -7,6 +7,13 @@ import { useNavigate } from "react-router-dom";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+
+
+const BACKURL = "https://disney-plus-clone-back.vercel.app";
+
+const LOCALURL = "http://localhost:5000";
+
+
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
 
@@ -81,7 +88,7 @@ export const AuthProvider = ({ children }) => {
 
   const DeleteUser = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/auth/register`, {
+      const response = await fetch(`${BACKURL | LOCALURL}/api/auth/register`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -113,7 +120,7 @@ export const AuthProvider = ({ children }) => {
     try {
       setIsAdmin(false);
       setIsLoading(true);
-      const response = await fetch("http://localhost:5000/api/admin/users", {
+      const response = await fetch(`${BACKURL | LOCALURL}/api/admin/users`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,

@@ -6,6 +6,11 @@ import image from "../assets/images/login_img.png";
 export const Contact = () => {
   
  
+const BACKURL = "https://disney-plus-clone-back.vercel.app";
+
+const LOCALURL = "http://localhost:5000";
+
+
   const [contact, setContact] = useState({
     email: localStorage.getItem("email"),
     message: "",
@@ -28,7 +33,7 @@ export const Contact = () => {
     e.preventDefault();
     console.log(contact);
     try {
-      const res = await fetch("http://localhost:5000/api/form/contact", {
+      const res = await fetch(`${BACKURL | LOCALURL}/api/form/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

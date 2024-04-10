@@ -10,16 +10,12 @@ const paymentRoute = require("./router/payment-router");
 const adminRoute = require("./router/admin-router");
 const errorMiddleware = require("./middlewares/error-middleware.js");
 
-
-
-
 //middleware
 //handling cors policy and hosting
 const corsOptions = {
   origin: [
+    "https://disney-plus-clone-front.vercel.app",
     "http://localhost:5173",
-    "https://disney-plus-clone-frontend-coral.vercel.app",
-    
   ],
   method: "GET,POST,PUT,DELETE,PATCH,HEAD",
   Credentials: true,

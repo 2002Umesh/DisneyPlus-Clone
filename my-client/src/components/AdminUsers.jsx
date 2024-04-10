@@ -3,11 +3,18 @@ import { useAuth } from "../mystore/auth";
 import { Link } from "react-router-dom";
 
 function AdminUsers() {
+
+
+const BACKURL = "https://disney-plus-clone-back.vercel.app";
+
+const LOCALURL = "http://localhost:5000";
+
+
   const [users, setUsers] = useState([]);
   const { authorizationToken } = useAuth();
   const getAllUsersData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin/users", {
+      const response = await fetch(`${BACKURL | LOCALURL}/api/admin/users`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,
@@ -28,13 +35,15 @@ function AdminUsers() {
   const deleteUser =async (id) => {
     console.log(id);
     try {
-      const res = await fetch(`http://localhost:5000/api/admin/users/delete/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: authorizationToken,
-        },
-        
-      }); 
+      const res = await fetch(
+        `${BACKURL | LOCALURL}/api/admin/users/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: authorizationToken,
+          },
+        }
+      ); 
       const data = await res.json();
       console.log(`users deleted : ${data} `);
       if(res.ok){
