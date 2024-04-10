@@ -6,6 +6,8 @@ const app = express();
 const connectDb = require("./utils/db");
 const authRoute = require("./router/auth-router");
 const contactRoute = require("./router/contact-router");
+const paymentRoute = require("./router/payment-router");
+const adminRoute = require("./router/admin-router");
 const errorMiddleware = require("./middlewares/error-middleware.js");
 
 
@@ -17,6 +19,7 @@ const corsOptions = {
   origin: [
     "http://localhost:5173",
     "https://disney-plus-clone-frontend-coral.vercel.app",
+    
   ],
   method: "GET,POST,PUT,DELETE,PATCH,HEAD",
   Credentials: true,
@@ -24,12 +27,15 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // app.use("/api/auth", authRoute);
 // app.use("/api/form", contactRoute);
 
 app.use("/api/auth", authRoute);
 app.use("/api/form", contactRoute);
+app.use("/api/payment", paymentRoute);
+app.use("/api/admin", adminRoute);
 
 app.use(errorMiddleware);
 

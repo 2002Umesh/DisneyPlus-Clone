@@ -3,6 +3,7 @@ import GlobalApi from "../services/GlobalApi";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import { BsCheck2All } from "react-icons/bs";
 import ViewMovie from "./ViewMovie";
+import { NavLink } from "react-router-dom";
 const screenWidth = window.innerWidth;
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
 // import img from "../assets/images/img.jpg";
@@ -77,6 +78,7 @@ function Slider() {
       </div>
 
       <div className="hidden md:block md:w-2/3 relative">
+     
         <HiChevronLeft
           className=" md:block text-white text-[30px] absolute mx-16 mt-[525px] cursor-pointer"
           onClick={() => sliderLeft(elementRef.current)}

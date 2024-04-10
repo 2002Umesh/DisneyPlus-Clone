@@ -9,7 +9,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
-  
+
   const navigate = useNavigate();
 
   const login = useGoogleLogin({
@@ -48,7 +48,6 @@ export const AuthProvider = ({ children }) => {
     setProfile(null);
     // localStorage.removeItem("tokens");
     localStorage.removeItem("token");
-    
   };
 
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -106,6 +105,41 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  //JWT User-Authentication
+  const [isLoading, setIsLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const authorizationToken = `Bearer ${token}`;
+  const userAuthentication = async () => {
+    try {
+      setIsAdmin(false);
+      setIsLoading(true);
+      const response = await fetch("http://localhost:5000/api/admin/users", {
+        method: "GET",
+        headers: {
+          Authorization: authorizationToken,
+        },
+      });
+
+      if (response.ok) {
+        const user = await response.json();
+        console.log("from authentication", user);
+        setIsAdmin(true);
+        setIsLoading(false);
+      } else {
+        setIsAdmin(false);
+        setIsLoading(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    userAuthentication();
+  }, []);
+
+  /// current user data
+
   return (
     <>
       <AuthContext.Provider
@@ -119,6 +153,9 @@ export const AuthProvider = ({ children }) => {
           DeleteUser,
           login,
           logOut,
+          authorizationToken,
+          isAdmin,
+          isLoading,
         }}
       >
         <ToastContainer />

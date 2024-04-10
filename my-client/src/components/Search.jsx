@@ -55,7 +55,8 @@ function Category() {
           <div className="">
             <div className="search">
               <div className="searchInputs flex pl-5">
-                <input className="w-10/12 h-[50px] text-center"
+                <input
+                  className="w-10/12 h-[50px] text-center"
                   type="text"
                   placeholder="Movies,shows and more"
                   value={wordEntered}
@@ -63,49 +64,55 @@ function Category() {
                 />
                 <div className="searchIcon flex items-center pl-1 ">
                   {filteredData.length === 0 ? (
-                    <LiaSearchengin style={{ fontSize: "28px" }}/>
+                    <LiaSearchengin style={{ fontSize: "28px" }} />
                   ) : (
                     // <CloseIcon id="clearBtn" onClick={clearInput} />
-                    <IoIosNuclear style={{ fontSize: "28px" }} id="clearBtn" onClick={clearInput}/>
+                    <IoIosNuclear
+                      style={{ fontSize: "28px" }}
+                      id="clearBtn"
+                      onClick={clearInput}
+                    />
                   )}
                 </div>
               </div>
-              
-            {filteredData.length !== 0 ?<div className="pt-2"> {filteredData.length != 0 && (
-                <div className="dataResult flex flex-wrap">
-                  {filteredData.slice(0, 15).map((item, key) => {
-                    return (
-                     <NavLink to="/Details" state={{item:item}}>
-                      <img
-                        src={
-                          "https://image.tmdb.org/t/p/w500" + item.poster_path
-                        }
-                        className=" h-[200px] mr-2 rounded-md hover:border-[3.5px] border-gray-300 p-2"
-                      /></NavLink>
-                    );
-                  })}
+
+              {filteredData.length !== 0 ? (
+                <div className="pt-2">
+                  {" "}
+                  {filteredData.length != 0 && (
+                    <div className="dataResult flex flex-wrap">
+                      {filteredData.slice(0, 15).map((item, key) => {
+                        return (
+                          <NavLink to="/Details" state={{ item: item }}>
+                            <img
+                              src={
+                                "https://image.tmdb.org/t/p/w500" +
+                                item.poster_path
+                              }
+                              className=" h-[200px] mr-2 rounded-md hover:border-[3.5px] border-gray-300 p-2"
+                            />
+                          </NavLink>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="flex flex-wrap pl-3 pt-2">
+                  {movieList.map((item) => (
+                    <img
+                      src={"https://image.tmdb.org/t/p/w500" + item.poster_path}
+                      className="h-[100px] md:h-[200px] mr-2 rounded-md hover:border-[3.5px] border-gray-300 p-2"
+                    />
+                  ))}
                 </div>
               )}
-          </div>
-:
-
-          <div className="flex flex-wrap pl-3 pt-2">
-            {movieList.map((item) => (
-              <img
-                src={"https://image.tmdb.org/t/p/w500" + item.poster_path}
-                className="h-[100px] md:h-[200px] mr-2 rounded-md hover:border-[3.5px] border-gray-300 p-2"
-              />
-            ))}
-          </div>}
-
-          </div>
+            </div>
           </div>
 
-          <div className="pt-[50px] md:pt-[150px]">
+          <div className="pt-[50px] md:pt-[150px] mr-1 md:mr-0">
             <Footer />
           </div>
-
-
         </div>
       </div>
     </>

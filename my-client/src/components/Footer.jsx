@@ -7,12 +7,15 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Footer() {
-  const {isLoggedIn} = useAuth();
+  const { isLoggedIn } = useAuth();
   return (
     <>
-      <div className="grid md:grid-cols-4">
+      <div className="flex flex-col items-center md:grid grid-cols-4 ">
+        {/* <.............> */}
         <div className="">
-          <h3 className="text-sm md:text-lg">Company</h3>
+          <h3 className="flex justify-center md:block text-sm md:text-lg">
+            Company
+          </h3>
           <div className="flex gap-2 md:block">
             <div className="md:pt-4">
               <a
@@ -33,9 +36,11 @@ function Footer() {
           </div>
         </div>
         <div>
-          <h3 className="text-sm md:text-lg">View Website in</h3>
-          <div className="md:pt-4">
-            <select name="lang" className="text-sm bg-black">
+          <h3 className="flex justify-center md:block text-sm md:text-lg">
+            View Website in
+          </h3>
+          <div className="flex justify-center md:block md:pt-4">
+            <select name="lang" className=" text-sm bg-black">
               <option value="English">English</option>
               <option value="Hindi">Hindi</option>
               <option value="Odia">Odia</option>
@@ -43,13 +48,17 @@ function Footer() {
           </div>
         </div>
         <div>
-          <h3 className="text-sm md:text-lg">Need Help?</h3>
+          <h3 className="flex justify-center md:block text-sm md:text-lg">
+            Need Help?
+          </h3>
           <div className="flex gap-2 md:block text-xs md:text-sm">
             <div className="md:pt-4 cursor-pointer text-xs md:text-sm">
               {isLoggedIn ? (
                 <NavLink to="/contact">Visit Help Center</NavLink>
               ) : (
-                <div onClick={()=>toast.warning("Please login")}>Visit Help </div>
+                <div onClick={() => toast.warning("Please login")}>
+                  Visit Help{" "}
+                </div>
               )}
               {/* <a href="https://en.wikipedia.org/wiki/Disney%2B_Hotstar">
                 Visit Help Center
@@ -59,7 +68,10 @@ function Footer() {
               {isLoggedIn ? (
                 <NavLink to="/contact">Share feedback</NavLink>
               ) : (
-                <div onClick={()=>toast.warning("Please login")}> Share feedback</div>
+                <div onClick={() => toast.warning("Please login")}>
+                  {" "}
+                  Share feedback
+                </div>
               )}
               {/* <a href="https://en.wikipedia.org/wiki/Disney%2B_Hotstar">
                 Share feedback
@@ -68,8 +80,10 @@ function Footer() {
           </div>
         </div>
         <div>
-          <h3 className="text-sm md:text-lg">Connect With Us</h3>
-          <div className="flex justify-content pt-1 md:pt-4 cursor-pointer pb-0 md:pb-1">
+          <h3 className="flex justify-center md:block text-sm md:text-lg">
+            Connect With Us
+          </h3>
+          <div className="flex justify-center md:justify-start pt-1 md:pt-4 cursor-pointer pb-0 md:pb-1">
             <a
               href="https://www.facebook.com/DisneyPlusHotstar"
               className="pl-2"
@@ -80,7 +94,7 @@ function Footer() {
               <FaSquareXTwitter />
             </a>
           </div>
-          <div className="hidden md:block pt-5 cursor-pointer">
+          <div className=" hidden md:block pt-5 cursor-pointer">
             <a href="https://play.google.com/store/apps/details?id=in.startv.hotstar.dplus&hl=en&gl=US">
               <img
                 className="size-[50px] w-24"
@@ -90,8 +104,11 @@ function Footer() {
             {/* <img className='size-[50px] w-24'  src='https://img10.hotstar.com/image/upload/f_auto,q_90,w_256/v1661346071/ios-appstore'/> */}
           </div>
         </div>
+        <div className="mt-2 md:hidden bg-slate-900 w-full h-10 text-center  text-xs text-red-900  ">
+          @hotstar2024
+        </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </>
   );
 }

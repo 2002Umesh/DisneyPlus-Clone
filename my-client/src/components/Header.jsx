@@ -19,7 +19,7 @@ function Header() {
           alt="logo"
         />
         <div
-          className="flex justify-evenly md:block w-lvw md:w-full pb-1 md:pb-0"
+          className="flex justify-evenly md:block w-lvw  md:w-full pb-1 md:pb-0 md:bg-black bg-neutral-900 rounded-xl h-12 pt-2 md:pt-0"
           onMouseEnter={() => {
             setShow(true);
           }}

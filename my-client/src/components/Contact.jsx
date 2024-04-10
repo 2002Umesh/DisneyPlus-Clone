@@ -2,9 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import image from "../assets/images/login_img.png";
 
+
 export const Contact = () => {
+  
+ 
   const [contact, setContact] = useState({
-    email: "",
+    email: localStorage.getItem("email"),
     message: "",
   });
   const navigate = useNavigate();
@@ -99,7 +102,7 @@ export const Contact = () => {
               </div>
             </form>
           </section>
-          <div className="relative">
+          <div className="hidden md:block relative">
             <img
               className="h-[380px] opacity-50"
               src={image}
@@ -109,7 +112,7 @@ export const Contact = () => {
           </div>
         </div>
 
-        <section className="mb-3 ">
+        <section className="mb-3 mt-1">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.2613173278896!2d73.91411937501422!3d18.562253982539413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c147b8b3a3bf%3A0x6f7fdcc8e4d6c77e!2sPhoenix%20Marketcity%20Pune!5e0!3m2!1sen!2sin!4v1697604225432!5m2!1sen!2sin"
             width="100%"

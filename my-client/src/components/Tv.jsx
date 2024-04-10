@@ -36,7 +36,7 @@ function Tv() {
               </NavLink>
             ))}
           </div>
-          <div className="pt-[50px] md:pt-[150px]">
+          <div className="pt-[50px] md:pt-[150px] mr-2 md:mr-0">
             <Footer />
           </div>
         </div>

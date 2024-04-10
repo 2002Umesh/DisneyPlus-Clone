@@ -68,7 +68,7 @@ function Category() {
             <img className="rounded-lg hover:scale-110 cursor-pointer transition-all duration-300 ease-in-out" src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/5292/1535292-a-5739f9c84b63" alt="" />
             <img className="rounded-lg hover:scale-110 cursor-pointer transition-all duration-300 ease-in-out" src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1080/sources/r1/cms/prod/8791/1568791-a-e50a43088a1a" alt="" />
           </div>
-          <div className="pt-5 pl-3">
+          <div className=" pt-5 md:pl-3 mr-2 md:mr-0">
             <Footer />
           </div>
         </div>
