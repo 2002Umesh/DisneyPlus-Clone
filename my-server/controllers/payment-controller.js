@@ -3,7 +3,6 @@ const crypto = require("crypto");
 require("dotenv").config();
 const Payment = require("../models/payment-model");
 
-
 const instance = new razorpay({
   key_id: process.env.KEY,
   key_secret: process.env.SECRET,
@@ -46,8 +45,9 @@ const verification = async (req, res) => {
 };
 
 const getkey = async (req, res) => {
-  return res.status(200).json({ key: process.env.KEY });
+  res.header("Access-Control-Allow-Credentials", "true");
+
+  res.status(200).json({ key: process.env.KEY });
 };
 
-
-module.exports = { checkout,verification,getkey};
+module.exports = { checkout, verification, getkey };
