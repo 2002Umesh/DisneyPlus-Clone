@@ -20,12 +20,18 @@ function Subscribtion() {
   const checkouthandler = async (amount) => {
     const {
       data: { key },
-    } = await axios.get(`${BACKURL}/api/payment/getkey`);
+    } = await axios.get(`${BACKURL}/api/payment/getkey`, {
+      withCredentials: true,
+    });
     const {
       data: { order },
-    } = await axios.post(`${BACKURL}/api/payment/checkout`, {
-      amount,
-    });
+    } = await axios.post(
+      `${BACKURL}/api/payment/checkout`,
+      {
+        amount,
+      },
+      { withCredentials: true }
+    );
     console.log(window);
     const options = {
       key,
