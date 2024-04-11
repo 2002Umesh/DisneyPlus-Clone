@@ -37,7 +37,9 @@ const verification = async (req, res) => {
       razorpay_payment_id,
       razorpay_signature,
     });
-    res.redirect(`http://localhost:5173/?reference=${razorpay_payment_id}`);
+    res.redirect(
+      `https://disney-plus-clone-front.vercel.app/?reference=${razorpay_payment_id}`
+    );
   } else {
     res.status(400).json({ success: false });
   }
