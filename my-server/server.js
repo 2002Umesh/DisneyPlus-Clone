@@ -41,7 +41,7 @@ app.use(errorMiddleware);
 // app.get("/about", (req, res) => {
 //   res.status(200).send("welcome user to my about");
 // });
-const PORT = "https://disney-plus-clone-back.vercel.app" | 5000;
+const PORT = "https://disney-plus-clone-back.vercel.app" || 5000;
 connectDb().then(() => {
   app.listen(PORT, () => {
     console.log(`server is running at port : ${PORT}`);
