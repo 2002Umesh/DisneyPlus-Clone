@@ -11,6 +11,19 @@ const adminRoute = require("./router/admin-router");
 const errorMiddleware = require("./middlewares/error-middleware.js");
 
 //middleware
+app.use((req, res, next) => {
+  // Allow requests from any origin. You can restrict it to specific origins if needed.
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  // Allow credentials (like cookies) to be sent with the request
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  // Allow specific HTTP methods
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  // Allow specific headers
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  // Pass control to the next middleware
+  next();
+});
 //handling cors policy and hosting
 const corsOptions = {
   origin: [
@@ -22,14 +35,14 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use(function (req, res, next) {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://disney-plus-clone-front.vercel.app"
-  );
-  res.header("Access-Control-Allow-Credentials", "true");
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header(
+//     "Access-Control-Allow-Origin",
+//     "https://disney-plus-clone-front.vercel.app"
+//   );
+//   res.header("Access-Control-Allow-Credentials", "true");
+//   next();
+// });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
