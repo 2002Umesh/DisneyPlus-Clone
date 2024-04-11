@@ -17,8 +17,8 @@ const corsOptions = {
     "https://disney-plus-clone-front.vercel.app",
     "https://localhost:5173",
   ],
-  method: "GET,POST,PUT,DELETE,PATCH,HEAD",
-  Credentials: true,
+  methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
+  credentials: true,
 };
 app.use(cors(corsOptions));
 
@@ -41,7 +41,7 @@ app.use(errorMiddleware);
 // app.get("/about", (req, res) => {
 //   res.status(200).send("welcome user to my about");
 // });
-const PORT = "https://disney-plus-clone-back.vercel.app" || 5000;
+const PORT = process.env.PORT || 5000;
 connectDb().then(() => {
   app.listen(PORT, () => {
     console.log(`server is running at port : ${PORT}`);
