@@ -3,12 +3,26 @@ import { NavLink, Navigate, Outlet } from "react-router-dom";
 import { FaClipboardUser, FaMessage } from "react-icons/fa6";
 import { FaHome } from "react-icons/fa";
 import { useAuth } from "../../mystore/auth";
+import "./Layout.css"
 
 function AdminLayout() {
   const { isLoading, isAdmin } = useAuth();
   console.log("admin:",isAdmin);
   if (isLoading) {
-    return <h1 className="h-screen text-center">Loading ...</h1>;
+    return (
+      <div class="loading">
+        <svg width="64px" height="48px">
+          <polyline
+            points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"
+            id="back"
+          ></polyline>
+          <polyline
+            points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"
+            id="front"
+          ></polyline>
+        </svg>
+      </div>
+    );
   }
   if (!isAdmin) {
     return <Navigate to="/" />;
