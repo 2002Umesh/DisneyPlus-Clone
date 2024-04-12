@@ -45,9 +45,8 @@ const verification = async (req, res) => {
 };
 
 const getkey = async (req, res) => {
-  res.header("Access-Control-Allow-Credentials", "true");
-
-  res.status(200).json({ key: process.env.KEY });
+  // res.header("Access-Control-Allow-Credentials", "true");
+  return res.status(200).json({ key: process.env.KEY });
 };
 
 module.exports = { checkout, verification, getkey };
