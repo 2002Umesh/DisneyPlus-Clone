@@ -15,10 +15,11 @@ import AdminLayout from "./components/layouts/Admin-Layout";
 import AdminUsers from "./components/AdminUsers";
 import AdminContacts from "./components/AdminContacts";
 import AdminUpdate from "./components/AdminUpdate";
+import { motion } from "framer-motion";
 
 function App() {
   return (
-    <>
+    <motion.div>
       <Routes>
         <Route path="/" element={<Mains />} />
         <Route path="/Login" element={<Login />} />
@@ -37,7 +38,7 @@ function App() {
           <Route path="users/:id/edit" element={<AdminUpdate />} />
         </Route>
       </Routes>
-    </>
+    </motion.div>
   );
 }
 
