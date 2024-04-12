@@ -18,19 +18,16 @@ function Subscribtion() {
   const checkouthandler = async (amount) => {
     const {
       data: { key },
-    } = await axios.get(
-      `https://disney-plus-clone-back.vercel.app/api/payment/getkey`,
-      {
-        withCredentials: true,
-        headers: {
-          "Access-Control-Allow-Credentials": "true",
-        },
-      }
-    );
+    } = await axios.get(`${BACKURL}/api/payment/getkey`, {
+      withCredentials: true,
+      headers: {
+        "Access-Control-Allow-Credentials": "true",
+      },
+    });
     const {
       data: { order },
     } = await axios.post(
-      `https://disney-plus-clone-back.vercel.app/api/payment/checkout`,
+      `${BACKURL}/api/payment/checkout`,
       {
         amount,
       },
@@ -51,7 +48,7 @@ function Subscribtion() {
       image:
         "https://img.freepik.com/premium-vector/concept-online-commercemobile-app-payment-with-credit-card-web-banking-customer_183665-376.jpg",
       order_id: order.id,
-      callback_url: `https://disney-plus-clone-back.vercel.app/api/payment/verification`,
+      callback_url: `${BACKURL}/api/payment/verification`,
       prefill: {
         name: "Cruiz",
         email: "cruiz2002@gmail.com",
