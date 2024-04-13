@@ -19,7 +19,7 @@ function Subscribtion() {
     const {
       data: { key },
     } = await axios.get(
-      `${BACKURL}/api/payment/rzp_test_T2Lny50ZRfp6vd`,
+      `${BACKURL}/api/payment/getkey`,
       { withCredentials: true }
       // , {
       //   withCredentials: true,
