@@ -19,7 +19,8 @@ function Subscribtion() {
     const {
       data: { key },
     } = await axios.get(
-      `${BACKURL}/api/payment/getkey`
+      `${BACKURL}/api/payment/getkey`,
+      { withCredentials: true }
       // , {
       //   withCredentials: true,
       //   headers: {
@@ -34,12 +35,13 @@ function Subscribtion() {
       {
         amount,
       },
-      {
-        withCredentials: true,
-        headers: {
-          "Access-Control-Allow-Credentials": "true",
-        },
-      }
+      { withCredentials: true }
+      // {
+      //   withCredentials: true,
+      //   headers: {
+      //     "Access-Control-Allow-Credentials": "true",
+      //   },
+      // }
     );
     console.log(window);
     const options = {
