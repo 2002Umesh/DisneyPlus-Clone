@@ -18,27 +18,28 @@ function Subscribtion() {
   const checkouthandler = async (amount) => {
     const {
       data: { key },
-    } = await axios.get(`${BACKURL}/api/payment/getkey`
-    // , {
-    //   withCredentials: true,
-    //   headers: {
-    //     "Access-Control-Allow-Credentials": "true",
-    //   },
-    // }
-  );
+    } = await axios.get(
+      `${BACKURL}/api/payment/getkey`
+      // , {
+      //   withCredentials: true,
+      //   headers: {
+      //     "Access-Control-Allow-Credentials": "true",
+      //   },
+      // }
+    );
     const {
       data: { order },
     } = await axios.post(
       `${BACKURL}/api/payment/checkout`,
       {
         amount,
+      },
+      {
+        withCredentials: true,
+        headers: {
+          "Access-Control-Allow-Credentials": "true",
+        },
       }
-      // {
-      //   withCredentials: true,
-      //   headers: {
-      //     "Access-Control-Allow-Credentials": "true",
-      //   },
-      // }
     );
     console.log(window);
     const options = {
